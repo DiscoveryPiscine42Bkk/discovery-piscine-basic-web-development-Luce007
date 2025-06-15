@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basics</title>
+    <style>
+        body {
+            background-color: pink;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        .shops {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+        .shop {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .shop img {
+            max-width: 250px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+        .shop a {
+            margin-top: 10px;
+            color: #333;
+            text-decoration: underline;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        hr {
+            margin: 40px 0 30px 0;
+            border: none;
+            border-top: 2px solid #fff;
+        }
+        .footer {
+            text-align: right;
+            font-style: italic;
+            font-family: "Fira Mono", "Consolas", "Monaco", monospace;
+            color: #fff;
+            margin-right: 30px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Shop&#9733;World!</h1>
+    <div class="shops">
+        <div class="shop">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+            <a href="https://www.amazon.com" target="_blank">Visit Amazon</a>
+        </div>
+        <div class="shop">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/1200px-EBay_logo.svg.png" alt="eBay">
+            <a href="https://www.ebay.com" target="_blank">Visit eBay</a>
+        </div>
+    </div>
+    <hr>
+    <div class="footer">
+        &copy; wil 2025
+    </div>
