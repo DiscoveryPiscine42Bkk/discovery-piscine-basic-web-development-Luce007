@@ -1,21 +1,117 @@
-<!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SNCF Sandwich Menu</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>SNCF Sandwich Drop-down Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f0e3;
+            font-family: 'Montserrat', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h2 {
+            margin-top: 60px;
+            color: #d72660;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+        }
+        .sandwich-menu {
+            margin-top: 40px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            padding: 32px 40px 40px 40px;
+            min-width: 320px;
+            position: relative;
+        }
+        .sandwich-menu label {
+            font-size: 1.2em;
+            color: #222;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 18px;
+        }
+        .dropdown {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+        select {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 2px solid #d72660;
+            background: #fbeee6;
+            font-size: 1.1em;
+            color: #d72660;
+            font-family: inherit;
+            appearance: none;
+            outline: none;
+            cursor: pointer;
+            transition: border 0.2s;
+        }
+        select:focus {
+            border: 2px solid #ffb400;
+        }
+        .dropdown::after {
+            content: "▼";
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d72660;
+            font-size: 1.1em;
+            pointer-events: none;
+        }
+        .ingredients-list {
+            margin-top: 30px;
+            font-size: 1em;
+            color: #444;
+        }
+        .ingredients-list span {
+            display: inline-block;
+            margin: 0 8px 8px 0;
+            padding: 6px 14px;
+            border-radius: 8px;
+            background: #e6f9e6;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .forbidden {
+            background: #ffeaea;
+            color: #d72660;
+            text-decoration: line-through;
+        }
+        .sncf-logo {
+            margin-top: 40px;
+            width: 120px;
+        }
+    </style>
 </head>
 <body>
-
-  <div class="menu-container">
-    <div class="menu-title">Choisir votre sandwich</div>
-    <div class="dropdown">
-      <a href="#">🧀 Jambon-Fromage</a>
-      <a href="#">🥗 Végétarien</a>
-      <a href="#">🐟 Thon-Mayo</a>
-      <a href="#">🧄 Poulet & Ail</a>
+    <h2>Composez votre Sandwich SNCF !</h2>
+    <div class="sandwich-menu">
+        <label for="sandwich">Choisissez votre ingrédient principal :</label>
+        <div class="dropdown">
+            <select id="sandwich" name="sandwich">
+                <option value="jambon-fromage">Jambon-Fromage (Ham & Cheese)</option>
+                <option value="beurre">Beurre (Butter)</option>
+                <option value="thon">Thon (Tuna)</option>
+                <option value="poulet">Poulet (Chicken)</option>
+                <option value="crudites">Crudités (Veggies)</option>
+            </select>
+        </div>
+        <div class="ingredients-list">
+            <span>CSS</span>
+            <span>HTML</span>
+            <span class="forbidden">Javascript</span>
+            <span class="forbidden">Autre</span>
+        </div>
     </div>
-  </div>
-
+    <img class="sncf-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Logo_SNCF_2011.svg/320px-Logo_SNCF_2011.svg.png" alt="SNCF Logo">
 </body>
 </html>
