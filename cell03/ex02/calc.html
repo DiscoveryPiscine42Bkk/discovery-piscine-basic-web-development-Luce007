@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    input, select {
+      margin: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    #calculator {
+      display: inline-block;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="calculator">
+    <input type="text" id="left" placeholder="Left operand">
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input type="text" id="right" placeholder="Right operand">
+    <input type="submit" value="Try me!" onclick="calculate()">
+  </div>
+
+  <script>
+    function isPositiveInteger(value) {
+      return /^\d+$/.test(value);
+    }
+
+    function calculate() {
+      const left = document.getElementById('left').value.trim();
+      const right = document.getElementById('right').value.trim();
+      const operator = document.getElementById('operator').value;
+
+      if (!isPositiveInteger(left) || !isPositiveInteger(right)) {
+        alert('Error :(');
+        return;
+      }
+
+      const a = parseInt(left, 10);
+      const b = parseInt(right, 10);
+
+      if ((operator === '/' || operator === '%') && b === 0) {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return;
+      }
+
+      let result;
+      switch (operator) {
+        case '+': result = a + b; break;
+        case '-': result = a - b; break;
+        case '*': result = a * b; break;
+        case '/': result = a / b; break;
+        case '%': result = a % b; break;
+      }
+
+      alert("Result: " + result);
+      console.log("Result: " + result);
+    }
+
+    // Reminder alert every 30 seconds
+    setInterval(() => {
+      alert('Please, use me...');
+    }, 30000);
+  </script>
+
+</body>
+</html>
