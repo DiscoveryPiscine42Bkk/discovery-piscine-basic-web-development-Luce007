@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini TO DO Manager (jQuery)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    #ft_list {
+      margin-top: 20px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2px dashed #ccc;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .todo {
+      background-color: #e3f2fd;
+      border: 1px solid #90caf9;
+      padding: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    #new-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="new-btn">New</button>
+
+  <div id="ft_list"></div>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      const $list = $('#ft_list');
+
+      function loadTodos() {
+        $list.empty();
+        let todos = JSON.parse(localStorage.getItem('todos') || '[]');
+        todos.reverse().forEach((todo, index) => {
+          const $item = $('<div class="todo"></div>').text(todo);
+
+          $item.on('click', function () {
+            if (confirm('Delete this task?')) {
+              todos.splice(todos.length - 1 - index, 1); // เพราะ reverse
+              localStorage.setItem('todos', JSON.stringify(todos));
+              loadTodos();
+            }
+          });
+
+          $list.append($item);
+        });
+      }
+
+      $('#new-btn').on('click', function () {
+        const task = prompt('Enter a new task:');
+        if (task && task.trim()) {
+          let todos = JSON.parse(localStorage.getItem('todos') || '[]');
+          todos.push(task.trim());
+          localStorage.setItem('todos', JSON.stringify(todos));
+          loadTodos();
+        }
+      });
+
+      loadTodos();
+    });
+  </script>
+
+</body>
+</html>

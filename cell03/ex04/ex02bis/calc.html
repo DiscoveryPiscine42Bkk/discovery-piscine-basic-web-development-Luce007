@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator (jQuery)</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    input, select {
+      margin: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    #calculator {
+      display: inline-block;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="calculator">
+    <input type="text" id="left" placeholder="Left operand">
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input type="text" id="right" placeholder="Right operand">
+    <input type="submit" id="calculateBtn" value="Try me!">
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      function isPositiveInteger(value) {
+        return /^\d+$/.test(value);
+      }
+
+      $('#calculateBtn').on('click', function () {
+        const left = $('#left').val().trim();
+        const right = $('#right').val().trim();
+        const operator = $('#operator').val();
+
+        if (!isPositiveInteger(left) || !isPositiveInteger(right)) {
+          alert('Error :(');
+          return;
+        }
+
+        const a = parseInt(left, 10);
+        const b = parseInt(right, 10);
+
+        if ((operator === '/' || operator === '%') && b === 0) {
+          alert("It's over 9000!");
+          console.log("It's over 9000!");
+          return;
+        }
+
+        let result;
+        switch (operator) {
+          case '+': result = a + b; break;
+          case '-': result = a - b; break;
+          case '*': result = a * b; break;
+          case '/': result = a / b; break;
+          case '%': result = a % b; break;
+        }
+
+        alert("Result: " + result);
+        console.log("Result: " + result);
+      });
+
+      setInterval(function () {
+        alert("Please, use me...");
+      }, 30000);
+    });
+  </script>
+
+</body>
+</html>

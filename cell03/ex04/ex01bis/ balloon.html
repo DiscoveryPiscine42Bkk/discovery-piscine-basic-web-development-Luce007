@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Balloon with jQuery</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <div id="balloon"></div>
+
+  <script>
+    $(document).ready(function () {
+      const $balloon = $('#balloon');
+      const colors = ['red', 'green', 'blue'];
+      let colorIndex = 0;
+      let size = 200;
+
+      function updateBalloon() {
+        $balloon.css({
+          width: `${size}px`,
+          height: `${size}px`,
+          backgroundColor: colors[colorIndex]
+        });
+      }
+
+      $balloon.on('click', function () {
+        size += 10;
+        colorIndex = (colorIndex + 1) % colors.length;
+
+        if (size > 420) {
+          size = 200;
+          colorIndex = 0;
+          alert('💥 Boom! The balloon exploded!');
+        }
+
+        updateBalloon();
+      });
+
+      $balloon.on('mouseleave', function () {
+        size = Math.max(200, size - 5);
+        colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+        updateBalloon();
+      });
+
+      updateBalloon(); // Initial
+    });
+  </script>
+
+</body>
+</html>
