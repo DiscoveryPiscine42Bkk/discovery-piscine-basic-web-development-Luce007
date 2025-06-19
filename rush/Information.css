@@ -1,0 +1,51 @@
+body {
+  background-color: #dce0e3;
+  font-family: Bonjour;
+  color: #333;
+  
+  background-image: url("jonathan-burger-Y_i2PNj1Ezg-unsplash.jpg"); /* เปลี่ยน path ตามรูปที่ใช้ */
+  background-size: cover;          /* ปรับให้ภาพครอบคลุมทั้งหน้า */
+  background-position: center;     /* จัดให้อยู่กึ่งกลาง */
+  background-repeat: no-repeat;    /* ไม่ให้ภาพซ้ำ */
+  min-height: 100vh;               /* ให้เต็มความสูงหน้าจอ */
+  color: #fff;                     /* เปลี่ยนสีตัวอักษรให้อ่านง่ายบนภาพ */
+
+/* ทำให้เนื้อหาอ่านง่ายขึ้นด้วยพื้นหลังโปร่งใส */
+.container {
+  background-color: rgba(0, 0, 0, 0.5); /* ดำโปร่งใส */
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+}
+
+section {
+  padding: 10px 0;
+  
+}
+
+img {
+  border: 4px solid #7c7979;
+}
+h1, h2, h3 {
+  color: #fff; /* เปลี่ยนสีหัวข้อให้ตัดกับพื้นหลัง */
+}
+
+.btn-gradient {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #171717, #2a2a2b);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
